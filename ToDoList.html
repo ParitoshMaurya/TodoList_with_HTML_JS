@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>ToDo's List</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ToDo's List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Theme</a></li>
+                            <li><a class="dropdown-item" href="#">Import/Export</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <form> <button class="btn btn-light me-2">
+                <svg id='refresh' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 0 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8zm5.48-.079V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6zm0 3.75V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141z" />
+                </svg></button> </form>
+                <input id='search-box' class="form-control me-2 w-25" type="search" placeholder="Search Task"
+                    aria-label="Search">
+                <button id='search-btn' class="btn btn-outline-success" type="submit">Search</button>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <h2 class="text-center">
+            ToDo's List
+        </h2>
+
+        <div class="mb-3">
+            <label for="task-box" class="form-label">Title</label>
+            <input type="task" class="form-control" id="task-box" aria-describedby="task-desc">
+            <div id="task-desc" class="form-text">We'll add your task to your ToDO's List.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="desc-box" class="form-label">Description</label>
+            <textarea class="form-control" id="desc-box" rows="3"></textarea>
+        </div>
+
+        <button id="add-btn" type="submit" class="btn btn-primary" onclick=update()>Add Task</button>
+        <button id="clear-btn" type="submit" class="btn btn-primary">Clear All Task</button>
+        <h3 class="my-4">
+            Your Task's
+        </h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- <tr>
+                <th scope="row">1</th>
+                <td>Drink Water</td>
+                <td>You have to drink water as you are a human being</td>
+                <td><button type="submit" class="btn btn-sm btn-primary">Delete</button></td>
+              </tr> -->
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    <script>
+        function txt_in_check(str_to_check,main_str){
+            str_to_check=str_to_check.toLowerCase()
+            main_str=main_str.toLowerCase()
+            if(main_str.indexOf(str_to_check)!=-1){
+                return true;
+            } else{return false};
+        }
+
+        refresh_btn = document.getElementById('refresh')
+        refresh_btn.addEventListener('click', () => {
+            search_val=document.getElementById('search-box').value
+            search_val=' '
+            show();
+        })
+        clear = document.getElementById('clear-btn');
+        clear.addEventListener('click', () => {
+            if (localStorage.getItem('itemJson') == "[]" || localStorage.getItem('itemJson') == null) {
+                alert("You dont have any task.")
+
+            }
+            else {
+                if (confirm('Do you really want to clear ..??')) {
+                    localStorage.clear();
+                    show();
+                };
+
+            }
+        });
+        function update() {
+            task = document.getElementById('task-box').value;
+            desc = document.getElementById('desc-box').value;
+            if (task != '' && desc != '') {
+                if (localStorage.getItem('itemJson') == null) {
+                    itemJsonArray = [];
+                    itemJsonArray.push([task, desc]);
+                    localStorage.setItem('itemJson', JSON.stringify(itemJsonArray));
+                } else {
+                    itemJsonArrayStr = localStorage.getItem('itemJson');
+                    itemJsonArray = JSON.parse(itemJsonArrayStr);
+                    itemJsonArray.push([task, desc]);
+                    localStorage.setItem('itemJson', JSON.stringify(itemJsonArray));
+                }
+            } else {
+                alert('Please Fill both Boxes before adding')
+            };
+            show()
+        };
+        function show() {
+            itemJsonArrayStr = localStorage.getItem('itemJson');
+            itemJsonArray = JSON.parse(itemJsonArrayStr);
+            let strr = '';
+            let tableBody = document.getElementById('table-body');
+            if (itemJsonArray != null) {
+                itemJsonArray.forEach((element, index) => {
+                    strr += `
+                <tr>
+                <th scope="row">${index + 1}</th>
+                <td>${element[0]}</td>
+                <td>${element[1]}</td>
+                <td><button type="submit" class="btn btn-sm btn-outline-danger" onclick=deleted(${index})>Delete</button></td>
+              </tr> `;
+                });
+            };
+            tableBody.innerHTML = strr;
+
+        };
+        show()
+        function deleted(elemindex) {
+            itemJsonArrayStr = localStorage.getItem('itemJson');
+            itemJsonArray = JSON.parse(itemJsonArrayStr);
+            itemJsonArray.splice(elemindex, 1);
+            localStorage.setItem('itemJson', JSON.stringify(itemJsonArray));
+            show();
+
+        };
+        search_btn = document.getElementById('search-btn')
+        search_btn.addEventListener('click', searched)
+        function searched() {
+            search_txt = document.getElementById('search-box').value;
+            itemJsonArrayStr = localStorage.getItem('itemJson')
+            itemJsonArray = JSON.parse(itemJsonArrayStr)
+            let strr_searched = ''
+            itemJsonArray.forEach((element, index) => {
+                if (txt_in_check(search_txt,element[0])) {
+                    strr_searched += `
+                    <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td>
+                    <td><button type="submit" class="btn btn-sm btn-outline-danger" onclick=deleted(${index})>Delete</button></td>
+                    </tr>
+                    `}
+            })
+            tableBody = document.getElementById('table-body')
+            tableBody.innerHTML = strr_searched
+        
+        };
+
+
+    </script>
+
+</body>
+
+</html>

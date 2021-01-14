@@ -8,3 +8,6 @@ In this project, I have made a TodoList using BootStrap and basics of JavaScript
 - BootStrap
 
 With the help of any browser you can run the `ToDoList.html` and start using it.
+
+You can also check my this project on Heroku, I have deployed this on Heroku
+``` https://todolistparitosh.herokuapp.com/ ``` :-)

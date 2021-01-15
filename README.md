@@ -9,5 +9,9 @@ In this project, I have made a TodoList using BootStrap and basics of JavaScript
 
 With the help of any browser you can run the `ToDoList.html` and start using it.
 
-You can also check my this project on Heroku, I have deployed this on Heroku
-``` https://todolistparitosh.herokuapp.com/ ``` :-)
+You can also check my this project on Heroku, I have deployed this on Heroku and Glitch both
+``` 
+https://todolistparitosh.herokuapp.com/ 
+https://todo-list-js000.glitch.me/
+```
+:-)
